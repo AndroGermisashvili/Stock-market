@@ -1,0 +1,34 @@
+﻿@model IEnumerable<MarketModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section Styles {
+<link rel="stylesheet" href="~/css/dashboard.min.css" />
+}
+
+<div>
+    <h1 class="display-4 text-center">All Markets</h1>
+    @foreach (var market in Model)
+    {
+        <partial name="_MarketsPartial" model="market" />
+    }
+</div>
+
+@section Scripts{
+<script>
+    var Interval = setInterval(function() {
+            window.location.reload(1);
+        }, 5000);
+
+        document.getElementById("priceInput").addEventListener("focus", function(){
+            clearInterval(Interval);
+            Interval = 0;
+        });
+        document.getElementById("priceInput").addEventListener("focusout", function(){
+            Interval = setInterval(function() {
+            window.location.reload(1);
+        }, 5000);
+        });
+</script>
+}

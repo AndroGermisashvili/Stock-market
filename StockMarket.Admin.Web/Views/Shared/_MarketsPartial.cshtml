@@ -1,0 +1,17 @@
+﻿@model MarketModel
+
+
+<input asp-for="@Model.Id" hidden />
+<div class="row market-container">
+    <div class="d-flex">
+        <input asp-for="Name" hidden />
+        <h1>@Model.Name</h1>
+    </div>
+    <div class="cards-container">
+        @foreach (var company in Model.Companies)
+        {
+            <partial name="_CompanyCardPartial" model="company" />
+        }
+    </div>
+</div>
+

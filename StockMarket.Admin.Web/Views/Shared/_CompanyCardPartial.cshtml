@@ -1,0 +1,16 @@
+﻿@model CompanyModel
+
+
+<div class="card company-card">
+    <form method="post" asp-controller="Home" asp-action="UpdateCompanyPrice">
+        <input asp-for="MarketId" hidden />
+        <input asp-for="Id" hidden />
+        <input asp-for="Name" hidden />
+        <label class="form-label" asp-for="Name">Company: @Model.Name</label>
+        <div>
+            <label asp-for="Price" class="form-label">Price:</label>
+            <input id="priceInput" asp-for="Price">
+        </div>
+        <button type="submit" class="btn btn-success">Save</button>
+    </form>
+</div>
